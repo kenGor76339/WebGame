@@ -1,0 +1,71 @@
+html{
+  background: url("/Texture/maxresdefault.jpg") no-repeat center center fixed; 
+  background-size: cover;
+  background-color: rgba(25, 53, 77, 0.589);
+  background-blend-mode:difference;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.innerTable td {
+    min-width: 120px;
+    height: 120px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+.innerTable .cell{
+  border: 0px;
+}
+  
+.enemy img,.player img{
+  min-width: 120px;
+  height: 120px;
+}
+
+
+.Pet{
+  position: relative;
+}
+
+
+.BattleArea{
+  margin: auto;
+  max-height: 500px;
+  width: 70%;
+  border: 3px solid #73AD21;
+  padding: 50px;
+}
+
+.CardGroup{
+  border: 3px solid #0011ff;
+  bottom: 0;
+  height: 330px;
+  position: absolute;
+  margin-left: 150px;
+  margin-right: 200px;
+}
+
+.CardTable td {
+  border: 1px solid #dddddd;
+  
+}
+
+.CardTable .cell{
+  border: 0px;
+}
+  
+
+
+.Card img{
+  width: 220px;
+  height: 330px;
+  transition: all 2s;
+}
+

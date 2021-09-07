@@ -1,0 +1,96 @@
+html{
+  background: url("/Texture/maxresdefault.jpg") no-repeat center center fixed; 
+  background-size: cover;
+  background-color: rgba(25, 53, 77, 0.589);
+  background-blend-mode:difference;
+  
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+
+
+.NavBar{
+  margin: auto;
+  display: flex;
+}
+
+.ExitBtn{
+  order: 1;
+  border: 3px solid #ad2121;
+  width: 200px;
+  height: 200px;
+}
+.Title{
+  margin-left: 5%;
+  order: 2;
+  border: 3px solid #2321ad;
+  width: 600px;
+  height: 200px;
+  
+}
+.NewTeamBtn{
+  order: 3;
+  border: 3px solid #ad21a1;
+  width: 300px;
+  height: 100px;
+  margin-left: 30%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.MyTeamsGroup{
+  flex-flow:  wrap;
+  display: flex;
+  margin-top: 5%;
+  border: 3px solid #ad21a1;
+}
+
+.TeamsBox{
+  border: 3px solid #21ad9a;
+  min-width: 800px;
+  min-height: 300px;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  background-color: blanchedalmond;
+  border-radius: 5%;
+}
+
+.Btn{
+  order: 1;
+  border: 3px solid #ad2121;
+  width: 100px;
+  height: 100px;
+}
+.TeamName{
+  order: 2;
+  border: 3px solid #ad21a1;
+  width: 65%;
+  text-align: center;
+  padding: 5%
+}
+.DelBtn{
+  order: 3;
+  border: 3px solid #21ad9a;
+  width: 100px;
+  height: 100px;
+}
+.content{
+  width: 100%;
+  height: 200px;
+  display: flex;
+}
+
+.PetContainer{
+  border: 3px solid #ad2121;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
