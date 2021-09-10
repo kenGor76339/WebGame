@@ -1,0 +1,81 @@
+html{
+    background: url("/Texture/maxresdefault.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    background-color: rgba(25, 53, 77, 0.589);
+    background-blend-mode:difference;
+    
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: 3px solid green; 
+  }
+  
+  
+  
+
+  .NavBar{
+    margin: auto;
+    display: flex;
+  }
+  
+  .ExitBtn{
+    order: 1;
+    border: 3px solid #ad2121;
+    width: 200px;
+    height: 200px;
+  }
+  .Title{
+    margin-left: 5%;
+    order: 2;
+    border: 3px solid #2321ad;
+    width: 600px;
+    height: 200px;
+    
+  }
+ 
+
+  .HorizontalBox{
+    display: flex;
+    
+    border: 3px solid #ad21a1;
+    
+}
+
+.VeticalBox{
+    flex-flow:  wrap;
+    
+    border: 3px solid #83ad21;
+}
+
+.head{
+    border: 3px solid #ad212d;
+    height: 10%;
+}
+
+h2, h3{
+    color: aliceblue;
+}
+
+.content{
+    border: 3px solid #2198ad;
+    height: 88%;
+    overflow: auto;
+    text-align: center;
+}
+
+.pet{
+    display:inline-block;
+    width: 128px;
+    height: 128px;
+    margin: 5%;
+}
+
+.testBox{
+    width: 100%;
+    height: 100px;
+    background-color: #ad2121;
+}
