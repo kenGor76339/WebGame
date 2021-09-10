@@ -47,27 +47,20 @@ html{
 
 .VeticalBox{
     flex-flow:  wrap;
-    
+    overflow: auto;
     border: 3px solid #83ad21;
 }
 
-.head{
-    border: 3px solid #ad212d;
-    height: 10%;
-}
+
 
 h2, h3{
     color: aliceblue;
 }
 
-.content{
-    border: 3px solid #2198ad;
-    height: 88%;
-    overflow: auto;
-    text-align: center;
-}
+
 
 .pet{
+    border: 3px solid #83ad21;
     display:inline-block;
     width: 256px;
     height: 256px;
