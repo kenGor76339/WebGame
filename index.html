@@ -6,9 +6,9 @@
         <link rel="stylesheet" href="test.css">
     </head>
     <body>
-        <img class = "rocket"  id= "rocket" src="/Texture/wtfCatt.png" ></img>
         <div class="backContainer" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-        <img class = "rocket"  id= "rocket" src="/Texture/wtfCatt.png" ></img>
+            <img class = "background" src="/Texture/t1.png"></img>
+            <img class = "rocket"  id= "rocket" src="/Texture/rocket.png" ></img>
         
         <div class="ButtonContainer">
             <button class="button Teams_btn"><img src="/Texture/cooltext_team.png"></button>
@@ -36,7 +36,7 @@
           var coor = "Coordinates: (" + x + "," + y + ")";
           document.getElementById("demo").innerHTML = coor;
             
-          document.getElementById("rocket").style.top = (imgY*0.6)-(imgY-(y/16))+"px";
+          document.getElementById("rocket").style.top = (imgY*0.7)-(imgY+(y/16))+"px";
         }
         
         function clearCoor() {
