@@ -7,63 +7,64 @@
         
     </head>
     <body>
-          
-        <img class="center" src="/Texture/cooltext_battleScene.png">
-        <div class="BattleArea">
+        <div class="center"><img style="width: 50%;" src="/Texture/cooltext_battleScene.png"></div>  
+        
+        <div class="center">
             <table class="innerTable">
             <tr>
-                <td class="player"></td>
-                <td class="player"></td>
-                <td class="player"></td>
+                <td class="red"></td>
+                <td class="red"></td>
+                <td class="red"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
-                <td class="enemy"></td>
-                <td class="enemy"></td>
-                <td class="enemy"></td>
+                <td class="blue"></td>
+                <td class="blue"></td>
+                <td class="blue"></td>
             </tr>
             <tr>
-                <td class="player"></td>
-                <td class="player"></td>
-                <td class="player"></td>
+                <td class="red"></td>
+                <td class="red"></td>
+                <td class="red"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
-                <td class="enemy"></td>
-                <td class="enemy"></td>
-                <td class="enemy"></td>
+                <td class="blue"></td>
+                <td class="blue"></td>
+                <td class="blue"></td>
             </tr>
             <tr>
-                <td class="player"></td>
-                <td class="player"></td>
-                <td class="player"></td>
+                <td class="red"></td>
+                <td class="red"></td>
+                <td class="red"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
-                <td class="enemy"></td>
-                <td class="enemy"></td>
-                <td class="enemy"></td>
+                <td class="blue"></td>
+                <td class="blue"></td>
+                <td class="blue"></td>
             </tr>
             
             </table>
         </div>
         
         
-            <div class="CardGroup">
-                <table class="CardTable">
+            <div>
+                <table class="CardTable center">
                     <tr>
-                        <td><div class='Card' onclick="loopMove()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="loopMove()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="loopMove()"><img src="/Texture/card01.png"/></div></td>
+                        <td><div class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png"/></div></td>
+                        <td><div class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png"/></div></td>
+                        <td><div class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png"/></div></td>
                         <td class="cell"></td>
-                        <td><div class='Card' onclick="loopMove()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="loopMove()"><img src="/Texture/card01.png"/></div></td>
+                        <td><div class='Card' onclick="pet02()"><img src="/Texture/card01.png"/></div></td>
+                        <td><div class='Card' onclick="pet02()"><img src="/Texture/card01.png"/></div></td>
                         <td class="cell"></td>
-                        <td><div class='Card' onclick="loopMove()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="loopMove()"><img src="/Texture/card01.png"/></div></td>
+                        <td><div class='Card' onclick="pet03()"><img src="/Texture/card01.png"/></div></td>
+                        <td><div class='Card' onclick="pet03()"><img src="/Texture/card01.png"/></div></td>
                     </tr>
                 </table>
             </div>
     </body>
         <script src="BattleScene.js"></script>
+        <script src="ClientSide.js"></script>
 </html>
