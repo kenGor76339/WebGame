@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Main Page</title>
-        <link rel="stylesheet" href="test.css">
-    </head>
-    <body>
-        <div class="backContainer" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-            <img class = "background" src="/Texture/t1.png"></img>
-            <img class = "rocket"  id= "rocket" src="/Texture/rocket.png" ></img>
-        
+
+<head>
+    <meta charset="utf-8" />
+    <title>Main Page</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="backContainer" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+        <img class="background" src="/Texture/t1.png"></img>
+        <img class="rocket" id="rocket" src="/Texture/rocket.png"></img>
+
         <div class="ButtonContainer">
-            <button class="button Teams_btn"><img src="/Texture/cooltext_team.png"></button>
-            <button class="button Pet_btn"><img src="/Texture/cooltext_pet.png"></button>
-            <button class="button Inventory_btn"><img src="/Texture/cooltext_Item.png"></button>
+            <a href="MyTeams.html"><button class="button Teams_btn"><img src="/Texture/cooltext_team.png"></button></a>
+            <a href="Pet.html"><button class="button Pet_btn"><img src="/Texture/cooltext_pet.png"></button></a>
+            <a href="ItemInventory.html"><button class="button Inventory_btn"><img
+                        src="/Texture/cooltext_Item.png"></button></a>
         </div>
         <div class="TitleContainer">
             <img src="/Texture/cooltext392153564957128.png" alt="Game Logo">
-            <a href="BattleScene.html"><button class="button Battle_btn"><img src="/Texture/cooltext_battle.png"></button></a>
+            <a href="Matching.html"><button class="button Battle_btn"><img
+                        src="/Texture/cooltext_battle.png"></button></a>
         </div>
         <div class="Rocket-container">
             <div class="Rocket">
@@ -26,23 +30,52 @@
             <p id="demo"></p>
         </div>
 
-        </div>
-        
+    </div>
+
     <script>
         function myFunction(e) {
-          var x = e.clientX;
-          var y = e.clientY;
-          var imgY =window.innerHeight;
-          var coor = "Coordinates: (" + x + "," + y + ")";
-          document.getElementById("demo").innerHTML = coor;
-            
-          document.getElementById("rocket").style.top = (imgY*0.7)-(imgY+(y/16))+"px";
+            var x = e.clientX;
+            var y = e.clientY;
+            var imgY = window.innerHeight;
+            var coor = "Coordinates: (" + x + "," + y + ")";
+            document.getElementById("demo").innerHTML = coor;
+
+            document.getElementById("rocket").style.top = (imgY * 0.7) - (imgY + (y / 16)) + "px";
         }
-        
+
         function clearCoor() {
-          document.getElementById("demo").innerHTML = "";
+            document.getElementById("demo").innerHTML = "";
         }
+
+        function S4() {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        }
+        const guid = () => (S4() + S4() + "-" + S4() + "-4" + S4().substring(0, 3) + "-" + S4() + S4() + S4()).toLocaleLowerCase();
+
+        function init() {
+            const component = {
+                head: "head base",
+                feet: "feet base",
+                hand: "hand base",
+                body: "body base",
+                tail: "tail base"
+            }
+
+            const data = {
+                id: guid(),
+                name: "Red pet",
+                component: component,
+                position: 2,
+                state: "idle"
+            }
+            const pets = [data]
+            console.log(pets)
+            sessionStorage.setItem("pets", JSON.stringify(pets));
+        }
+
+        init()
     </script>
-    </body>
-    
+
+</body>
+
 </html>

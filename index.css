@@ -1,0 +1,91 @@
+html{
+
+background: url("/Texture/maxresdefault.jpg") no-repeat center center fixed; 
+background-size: cover;
+
+background-blend-mode: lighten;
+}
+.background{
+    position: absolute;
+    width: 100%;
+}
+.backContainer{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+.rocket{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    left: -40%;
+    top: -10%;
+}
+
+.ButtonContainer {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    width: auto;
+}
+
+.button{
+    right: 100%;
+    height: 100%;
+    width: auto+5%;
+    margin: auto;
+    transition-duration: 1.0s;
+    border-radius: 10%;
+}
+
+.Battle_btn{
+    background-image: linear-gradient(#ffffff, #FB3640, #d00000);
+    width: 100%;
+}
+.Teams_btn{
+    background-image: linear-gradient( #445E93, #445E93,#ffffff);
+
+}
+.Pet_btn{
+    background-image: linear-gradient(#1B998B, #1B998B,#ffffff);
+}
+.Inventory_btn{
+    background-image: linear-gradient(#1B998B, #1B998B,#ffffff);
+}
+
+.button:hover {
+    box-shadow: 0px 10px 15px #ffffff;
+    transform: scale(1.5);
+    transform: translateY(-8px);
+    transition: transform.2s;
+}
+
+.TitleContainer {
+    position: fixed; 
+    top: calc(52% - 100px);
+    left: calc(45% - 100px);
+}
+
+.Rocket-container{
+
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(35% - 25px);
+}
+
+.Rocket{
+    animation: spin 10s linear infinite;
+    background: none;
+    height: 100px;
+    pointer-events: none;
+    transform-origin: top right;
+    width: 300px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotateZ(360deg); 
+      }
+  }

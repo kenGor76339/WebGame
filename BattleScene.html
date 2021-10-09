@@ -1,70 +1,83 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Battle Page</title>
-        <link rel="stylesheet" href="BattleScene.css">
-        
-    </head>
-    <body>
-        <div class="center"><img style="width: 50%;" src="/Texture/cooltext_battleScene.png"></div>  
-        
-        <div class="center">
-            <table class="innerTable">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Battle Page</title>
+    <link rel="stylesheet" href="BattleScene.css">
+
+</head>
+
+<body>
+    <div class="center"><img style="width: 50%;" src="/Texture/cooltext_battleScene.png"></div>
+
+    <div class="center">
+        <table class="innerTable">
             <tr>
-                <td class="red"></td>
-                <td class="red"></td>
-                <td class="red"></td>
+                <td class="red team"></td>
+                <td class="red team"></td>
+                <td class="red team"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
-                <td class="blue"></td>
-                <td class="blue"></td>
-                <td class="blue"></td>
+                <td class="blue team"></td>
+                <td class="blue team"></td>
+                <td class="blue team"></td>
             </tr>
             <tr>
-                <td class="red"></td>
-                <td class="red"></td>
-                <td class="red"></td>
+                <td class="red team"></td>
+                <td class="red team"></td>
+                <td class="red team"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
-                <td class="blue"></td>
-                <td class="blue"></td>
-                <td class="blue"></td>
+                <td class="blue team"></td>
+                <td class="blue team"></td>
+                <td class="blue team"></td>
             </tr>
             <tr>
-                <td class="red"></td>
-                <td class="red"></td>
-                <td class="red"></td>
+                <td class="red team"></td>
+                <td class="red team"></td>
+                <td class="red team"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
                 <td class="cell"></td>
-                <td class="blue"></td>
-                <td class="blue"></td>
-                <td class="blue"></td>
+                <td class="blue team"></td>
+                <td class="blue team"></td>
+                <td class="blue team"></td>
             </tr>
-            
-            </table>
-        </div>
-        
-        
-            <div>
-                <table class="CardTable center">
-                    <tr>
-                        <td><div class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png"/></div></td>
+
+        </table>
+    </div>
+
+
+    <div>
+        <table class="CardTable center">
+            <tr>
+                <td>
+                    <div id="card01" class='Card' onclick="printTest()"><img src="/Texture/card01.png" /></div>
+                </td>
+                <td>
+                    <div id="card02" class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png" /></div>
+                </td>
+                <td>
+                    <div id="card03" class='Card' onclick="pet01_attack()"><img src="/Texture/card01.png" /></div>
+                </td>
+                <td class="cell"></td>
+                <!--<td><div id="card11" class='Card' onclick=""><img src="/Texture/card01.png"/></div></td>
+                        <td><div id="card12" class='Card' onclick=""><img src="/Texture/card01.png"/></div></td>
+                        <td><div id="card13" class='Card' onclick=""><img src="/Texture/card01.png"/></div></td>
                         <td class="cell"></td>
-                        <td><div class='Card' onclick="pet02()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="pet02()"><img src="/Texture/card01.png"/></div></td>
-                        <td class="cell"></td>
-                        <td><div class='Card' onclick="pet03()"><img src="/Texture/card01.png"/></div></td>
-                        <td><div class='Card' onclick="pet03()"><img src="/Texture/card01.png"/></div></td>
-                    </tr>
-                </table>
-            </div>
-    </body>
-        <script src="BattleScene.js"></script>
-        <script src="ClientSide.js"></script>
+                        <td><div id="card21" class='Card' onclick=""><img src="/Texture/card01.png"/></div></td>
+                        <td><div id="card22" class='Card' onclick=""><img src="/Texture/card01.png"/></div></td>
+                        <td><div id="card23" class='Card' onclick=""><img src="/Texture/card01.png"/></div></td>-->
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="character/pet.js"></script>
+<script src="BattleScene.js"></script>
+<script src="/network/message.js"></script>
+<script src="ClientSide.js"></script>
+
 </html>
