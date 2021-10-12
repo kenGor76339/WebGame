@@ -9,8 +9,8 @@
 
 <body>
     <div class="backContainer" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-        <img class="background" src="/Texture/t1.png"></img>
-        <img class="rocket" id="rocket" src="/Texture/rocket.png"></img>
+        <img class="deck" id="deck" src="/Texture/spaceshipDeck.png"></img>
+        <img class="icon" id="icon" src="/Texture/test.gif"></img>
 
         <div class="ButtonContainer">
             <a href="MyTeams.html"><button class="button Teams_btn"><img src="/Texture/cooltext_team.png"></button></a>
@@ -40,7 +40,16 @@
             var coor = "Coordinates: (" + x + "," + y + ")";
             document.getElementById("demo").innerHTML = coor;
 
-            document.getElementById("rocket").style.top = (imgY * 0.7) - (imgY + (y / 16)) + "px";
+            var imageCoor = document.getElementById("icon").style.top;
+            
+            
+
+            // document.getElementById("icon").style.top = ((y-500)*0.05) + "px";
+            // document.getElementById("deck").style.top = 1-((y-500)*0.05) + "px";
+            document.getElementById("icon").style.top = ((y/imgY)*y*0.05)+imgY/3 + "px";
+            document.getElementById("deck").style.top = 1-((y/imgY)*y*0.05)  + "px";
+            
+            // document.getElementById("rocket").style.top = (imgY * 0.7) - (imgY + (y / 16)) + "px";
         }
 
         function clearCoor() {
