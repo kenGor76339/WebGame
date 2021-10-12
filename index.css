@@ -9,8 +9,8 @@ background-blend-mode: lighten;
     position: absolute;
     height: 120%;
     width: 120%;
-    left: -5%;
     top: -5%;
+    left: -5%;
 }
 .background{
     position: absolute;

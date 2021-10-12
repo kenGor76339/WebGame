@@ -37,6 +37,7 @@
             var x = e.clientX;
             var y = e.clientY;
             var imgY = window.innerHeight;
+            var imgX = window.innerWidth;
             var coor = "Coordinates: (" + x + "," + y + ")";
             document.getElementById("demo").innerHTML = coor;
 
@@ -48,6 +49,7 @@
             // document.getElementById("deck").style.top = 1-((y-500)*0.05) + "px";
             document.getElementById("icon").style.top = ((y/imgY)*y*0.05)+imgY/3 + "px";
             document.getElementById("deck").style.top = 1-((y/imgY)*y*0.05)  + "px";
+            document.getElementById("deck").style.left = 1-((x/imgX)*x*0.05)-imgX*0.1  + "px";
             
             // document.getElementById("rocket").style.top = (imgY * 0.7) - (imgY + (y / 16)) + "px";
         }
