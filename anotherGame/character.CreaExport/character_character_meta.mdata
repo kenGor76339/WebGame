@@ -1,0 +1,65 @@
+{
+    "AnchorPoints": {
+        "anchors": [],
+        "name": "Anchor Points",
+        "type": "anchorPointHolder"
+    },
+    "CompositeClips": {},
+    "VertAttachments": {
+        "attachments": [],
+        "name": "Vert Attachments",
+        "type": "vertAttachHolder"
+    },
+    "eventTriggers": {
+        "default": [],
+        "idle": []
+    },
+    "meshes": {
+        "body": {
+            "endIndex": 1247,
+            "id": 26,
+            "startIndex": 876
+        },
+        "head": {
+            "endIndex": 1763,
+            "id": 27,
+            "startIndex": 1248
+        },
+        "leftfeet": {
+            "endIndex": 485,
+            "id": 23,
+            "startIndex": 252
+        },
+        "lefthand": {
+            "endIndex": 683,
+            "id": 24,
+            "startIndex": 486
+        },
+        "rightfeet": {
+            "endIndex": 251,
+            "id": 22,
+            "startIndex": 0
+        },
+        "righthand": {
+            "endIndex": 875,
+            "id": 25,
+            "startIndex": 684
+        }
+    },
+    "physicsData": {
+        "default": {},
+        "idle": {}
+    },
+    "regionOrders": {
+        "default": [],
+        "idle": []
+    },
+    "skinSwapList": {
+        "Default": {
+            "swap": {
+                "name": "Default",
+                "swap_items": []
+            }
+        }
+    }
+}
