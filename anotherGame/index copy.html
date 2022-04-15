@@ -45,11 +45,13 @@
         var sprite;
         var position = { x: 0, y: 0 };
         var flipFlop;
+        var group
         //----------------------------------------------------------------------------------
 
         function preload() {
             this.load.image('wall', 'blackBox.png');
             this.load.image('red', 'partical.png');
+            this.load.image('arrow', 'arrow.png');
             this.load.spritesheet('player', 'dude.png', { frameWidth: 32, frameHeight: 48 });
         }
 
@@ -121,41 +123,98 @@
             this.player.add(r1)
             this.player.data = { area: r1 }
             emitter.startFollow(this.player);
+            this.player.skillOne = (function () {
+                canShoot = true
+                return function arrowAttack(owner, target, trigger) {
+                    //console.log(canShoot)
+                    if (canShoot && trigger == 1) {
+                        if (owner == null) return
+                        let arrow = game.physics.add.sprite(game.player.x, game.player.y, 'arrow')
+                        arrow.setScale(0.1)
+                        arrow.onCollided = onCollided
+                        game.dynamicList.push(arrow)
+                        game.tweens.add({
+                            targets: arrow,
+                            x: target.x,
+                            y: target.y,
+                            duration: 3000,
+                            ease: 'Power2',
+                            onComplete: onDestroyHandler,
+                            onCompleteParams: [arrow]
+                        });
+                    } else if (trigger > 1) {
+                        canShoot = false
+                    } else if (trigger == -1) {
+                        canShoot = true
+                    }
+                }
+            })()
+
+            this.cameras.main.startFollow(this.player);
 
             console.log(this.player)
+            this.physics.world.setBoundsCollision(false, false, false, false);
 
+            this.dynamicList = []
         }
 
         function update(time, delta) {
 
-            this.physics.add.collider(this.player, group);
             inputFunction();
-            checkCollisions();
-            console.log(this.player.y)
+            checkCollisions()
+            dynamicCollisions()
+        }
+
+        function dynamicCollisions() {
+            //console.log(game.dynamicList)
+            if (game.dynamicList.length == 0) game.player.skillOne(null, null, -1)
+            for (i in game.dynamicList) {
+                for (j in game.world) {
+                    if (game.dynamicList[i] == null) continue
+                    if (RectCollision(game.dynamicList[i], game.world[j])) {
+                        game.dynamicList[i].onCollided(game.dynamicList[i], game.world[j])
+                        game.dynamicList.splice(i, 1)
+                    }
+                }
+            }
+        }
+
+        function onCollided(sprite1, sprite2) {
+
+            sendDamage(sprite2, 1)
+            sprite1.destroy()
+
         }
 
         function checkCollisions() {
             let doOnce = false;
+            let counter = 0;
             for (item in game.world) {
                 if (RectCollision(game.player.data.area, game.world[item])) {
+                    doOnce = true
                     if (game.world[item].active == false || game.world[item].name !== "wall") continue
                     game.player.data.area.isFilled = true
                     game.player.data.area.fillColor = 0xffff00
                     game.player.data.area.alpha = 0.5
-                    sendDamage(game.world[item], 1)
-                    doOnce = true;
+
+                    game.player.skillOne(game.player, game.world[item], 1)
+                    counter++
                 } else {
                     if (doOnce) continue;
                     game.player.data.area.isFilled = false
                 }
             }
+            game.player.skillOne(null, null, counter)
         }
 
+
         function destroyActor(target) {
-            if(game.player.list.length < 9)placeActor(game.player.list[0]);
+            if (game.player.list.length < 9) placeActor(game.player.list[0]);
             target.active = false;
             target.visible = false;
             target.body.destroy();
+            group.remove(target)
+
         }
 
         function placeActor(cur) {
@@ -193,15 +252,32 @@
 
         function sendDamage(target, damage) {
             target.data.hp -= damage;
+
+            const style = { font: "bold 32px Arial", fill: "#f00" };
+            text = game.add.text(target.x + 10, target.y - 50, `HP: -${damage}`, style);
+            game.tweens.add({
+                targets: text,
+                y: target.y - 100,
+                alpha: 0,
+                ease: 'Power1',
+                duration: 1000,
+                onComplete: onCompleteHandler,
+                onCompleteParams: [text]
+            });
+
             if (target.data.hp < 0) destroyActor(target);
         }
 
         function RectCollision(r1, r2) {
+            let R1 = r1
+            if (r1.parentContainer != null) {
+                R1 = r1.parentContainer
+            }
             // Rect1
-            var minX1 = r1.parentContainer.x - r1.width * r1.scale / 2,
-                maxX1 = r1.parentContainer.x + r1.width * r1.scale / 2,
-                minY1 = r1.parentContainer.y - r1.height * r1.scale / 2,
-                maxY1 = r1.parentContainer.y + r1.height * r1.scale / 2;
+            var minX1 = R1.x - r1.width * r1.scale / 2,
+                maxX1 = R1.x + r1.width * r1.scale / 2,
+                minY1 = R1.y - r1.height * r1.scale / 2,
+                maxY1 = R1.y + r1.height * r1.scale / 2;
 
             // Rect2
             var minX2 = r2.x - r2.width * r2.scale / 2,
@@ -226,7 +302,7 @@
             if (keyboard["a"].isDown) {
                 game.player.x -= 10;
                 game.player.list.forEach(element => {
-                    if(element.type ==='Sprite')element.anims.play('left', true);
+                    if (element.type === 'Sprite') element.anims.play('left', true);
                 });
                 keyUp = false;
             }
@@ -237,13 +313,13 @@
             if (keyboard["d"].isDown) {
                 game.player.x += 10;
                 game.player.list.forEach(element => {
-                    if(element.type ==='Sprite')element.anims.play('right', true);
+                    if (element.type === 'Sprite') element.anims.play('right', true);
                 });
                 keyUp = false;
             }
             if (keyUp) {
                 game.player.list.forEach(element => {
-                    if(element.type ==='Sprite')element.anims.play("turn")
+                    if (element.type === 'Sprite') element.anims.play("turn")
                 });
             }
 
@@ -259,8 +335,14 @@
             }
         }
 
-        function loop() {
-            loop();
+        function onCompleteHandler(tween, targets, myText) {
+            myText.destroy()
+        }
+
+        function onDestroyHandler(tween, targets, object) {
+            let i = game.dynamicList.indexOf(object)
+            game.dynamicList.splice(i, 1)
+            object.destroy()
         }
 
         function newActor(x, y, cur) {
